@@ -1,0 +1,1183 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * USELESS PROJECT design system.
+ * Horror-cartoon room: dark stained wood, warm bulb light, cute bear tokens.
+ * All colors are oklch semantic tokens. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --font-display: "Special Elite", ui-monospace, monospace;
+  --font-body: "Special Elite", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.14 0.018 60);
+  --foreground: oklch(0.9 0.03 80);
+  --card: oklch(0.2 0.025 60);
+  --card-foreground: oklch(0.9 0.03 80);
+  --popover: oklch(0.2 0.025 60);
+  --popover-foreground: oklch(0.9 0.03 80);
+  --primary: oklch(0.78 0.15 75);
+  --primary-foreground: oklch(0.18 0.03 60);
+  --secondary: oklch(0.26 0.03 60);
+  --secondary-foreground: oklch(0.9 0.03 80);
+  --muted: oklch(0.24 0.02 60);
+  --muted-foreground: oklch(0.66 0.03 75);
+  --accent: oklch(0.6 0.16 40);
+  --accent-foreground: oklch(0.97 0.02 80);
+  --destructive: oklch(0.55 0.2 27);
+  --destructive-foreground: oklch(0.97 0.02 80);
+  --border: oklch(0.3 0.03 60);
+  --input: oklch(0.3 0.03 60);
+  --ring: oklch(0.78 0.15 75);
+
+  /* room */
+  --wall: oklch(0.31 0.035 62);
+  --wall-dark: oklch(0.24 0.03 60);
+  --wall-plank: oklch(0.27 0.032 60);
+  --floor: oklch(0.34 0.045 58);
+  --floor-dark: oklch(0.25 0.035 56);
+  --door: oklch(0.29 0.05 50);
+  --door-dark: oklch(0.21 0.04 48);
+  --doorway: oklch(0.08 0.02 60);
+  --bulb-on: oklch(0.95 0.13 95);
+  --bulb-off: oklch(0.45 0.02 80);
+  --glow: oklch(0.86 0.14 82);
+  --rope: oklch(0.62 0.07 80);
+
+  /* bear */
+  --bear-fur: oklch(0.62 0.09 62);
+  --bear-dark: oklch(0.5 0.08 58);
+  --bear-inner: oklch(0.72 0.08 55);
+  --bear-belly: oklch(0.82 0.06 78);
+  --bear-snout: oklch(0.8 0.06 74);
+  --bear-nose: oklch(0.2 0.03 50);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html,
+  body {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* ---------------- Room ---------------- */
+
+.stage {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  cursor: default;
+  user-select: none;
+  touch-action: none;
+}
+
+.stage--shake {
+  animation: cam-shake 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+@keyframes cam-shake {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  10% {
+    transform: translate3d(-14px, 8px, 0) rotate(-0.6deg);
+  }
+  25% {
+    transform: translate3d(12px, -10px, 0) rotate(0.5deg);
+  }
+  40% {
+    transform: translate3d(-9px, 6px, 0) rotate(-0.4deg);
+  }
+  60% {
+    transform: translate3d(7px, -4px, 0) rotate(0.3deg);
+  }
+  80% {
+    transform: translate3d(-3px, 2px, 0) rotate(-0.1deg);
+  }
+}
+
+.wall {
+  position: absolute;
+  inset: 0 0 26% 0;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      var(--wall) 0 6.5%,
+      var(--wall-plank) 6.5% 7%,
+      var(--wall) 7% 13%
+    ),
+    linear-gradient(180deg, var(--wall-dark), var(--wall));
+}
+
+.floor {
+  position: absolute;
+  inset: 74% 0 0 0;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      var(--floor) 0 14%,
+      var(--floor-dark) 14% 15.5%,
+      var(--floor) 15.5% 30%
+    ),
+    linear-gradient(180deg, var(--floor-dark), var(--floor));
+  box-shadow: inset 0 14px 34px oklch(0 0 0 / 0.6);
+}
+
+.baseboard {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 72.6%;
+  height: 1.6%;
+  background: var(--door-dark);
+}
+
+/* doorframe + door */
+.doorframe {
+  position: absolute;
+  bottom: 26%;
+  left: 50%;
+  translate: -50% 0;
+  width: clamp(150px, 21vw, 300px);
+  height: clamp(240px, 42vh, 460px);
+  background: var(--doorway);
+  border: 0.75rem solid var(--door-dark);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+  box-shadow: inset 0 0 60px oklch(0 0 0 / 0.9);
+  perspective: 800px;
+}
+
+.doorway-dark {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 90%, oklch(0.16 0.02 60 / 0.7), var(--doorway) 70%);
+}
+
+.door {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  background:
+    linear-gradient(90deg, oklch(0 0 0 / 0.35), transparent 25%),
+    repeating-linear-gradient(90deg, var(--door) 0 22%, var(--door-dark) 22% 24%, var(--door) 24% 46%);
+  border-right: 3px solid var(--door-dark);
+  box-shadow: 0 8px 40px oklch(0 0 0 / 0.6);
+  will-change: transform;
+}
+
+.door::after {
+  content: "";
+  position: absolute;
+  right: 8%;
+  top: 52%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bulb-off);
+  box-shadow: 0 0 4px oklch(0 0 0 / 0.8);
+}
+
+.door--closed {
+  transform: rotateY(0deg);
+  transition: transform 0.16s cubic-bezier(0.7, 0, 0.3, 1);
+}
+.door--ajar {
+  transform: rotateY(42deg);
+  transition: transform 2.6s cubic-bezier(0.3, 0, 0.4, 1);
+}
+.door--opening {
+  transform: rotateY(88deg);
+  transition: transform 1.8s cubic-bezier(0.4, 0, 0.5, 1);
+}
+.door--open {
+  transform: rotateY(88deg);
+}
+
+/* creepy doorway build-up */
+.doorway-slot {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.doorway-eyes {
+  position: absolute;
+  top: 34%;
+  right: 22%;
+  display: flex;
+  gap: 14px;
+  animation: eyes-in 0.9s ease-out both;
+}
+
+.doorway-eyes span {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--glow);
+  box-shadow: 0 0 14px 4px var(--glow);
+  animation: eyes-blink 2.6s ease-in-out infinite;
+}
+.doorway-eyes span:last-child {
+  animation-delay: 0.06s;
+}
+
+@keyframes eyes-in {
+  from {
+    opacity: 0;
+    translate: 0 10px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes eyes-blink {
+  0%,
+  44%,
+  52%,
+  100% {
+    scale: 1 1;
+    opacity: 1;
+  }
+  48% {
+    scale: 1 0.1;
+    opacity: 0.6;
+  }
+}
+
+.peek {
+  position: absolute;
+  bottom: -18%;
+  right: -4%;
+  width: 78%;
+  height: 78%;
+  transform-origin: bottom left;
+  animation: peek-in 1s cubic-bezier(0.34, 1.3, 0.64, 1) both;
+}
+
+.peek--out {
+  animation: peek-out 0.6s ease-in both;
+}
+
+@keyframes peek-in {
+  from {
+    translate: 62% 0;
+    rotate: 14deg;
+  }
+  to {
+    translate: 0 0;
+    rotate: 7deg;
+  }
+}
+
+@keyframes peek-out {
+  from {
+    translate: 0 0;
+    rotate: 7deg;
+  }
+  to {
+    translate: 70% 0;
+    rotate: 16deg;
+  }
+}
+
+/* ceiling lamp + rope */
+.lamp {
+  position: absolute;
+  top: 0;
+  left: 78%;
+  width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lamp-wire {
+  width: 3px;
+  height: clamp(40px, 9vh, 90px);
+  background: var(--rope);
+  opacity: 0.7;
+}
+
+.lamp-shade {
+  width: clamp(52px, 8vw, 92px);
+  height: clamp(26px, 4vw, 46px);
+  background: linear-gradient(180deg, var(--door-dark), var(--door));
+  clip-path: polygon(18% 0, 82% 0, 100% 100%, 0 100%);
+}
+
+.bulb {
+  width: clamp(16px, 2.4vw, 26px);
+  height: clamp(20px, 3vw, 32px);
+  border-radius: 50% 50% 45% 45%;
+  background: var(--bulb-off);
+  margin-top: -4px;
+  transition: background 60ms linear;
+}
+
+.bulb--on {
+  background: var(--bulb-on);
+  box-shadow:
+    0 0 30px var(--glow),
+    0 0 90px var(--glow);
+}
+
+.rope {
+  position: absolute;
+  top: 0;
+  left: 78%;
+  translate: -50% 0;
+  width: 46px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: grab;
+  touch-action: none;
+  z-index: 6;
+}
+
+.rope:active {
+  cursor: grabbing;
+}
+
+.rope-line {
+  width: 4px;
+  background: repeating-linear-gradient(
+    180deg,
+    var(--rope) 0 6px,
+    oklch(0.5 0.06 78) 6px 10px
+  );
+  border-radius: 2px;
+}
+
+.rope-knob {
+  width: 16px;
+  height: 26px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, var(--rope), var(--door-dark));
+  box-shadow: 0 2px 6px oklch(0 0 0 / 0.7);
+}
+
+.rope--swing {
+  animation: rope-swing 2.4s ease-out;
+  transform-origin: top center;
+}
+
+@keyframes rope-swing {
+  0% {
+    rotate: 0deg;
+  }
+  20% {
+    rotate: 7deg;
+  }
+  40% {
+    rotate: -5deg;
+  }
+  60% {
+    rotate: 3deg;
+  }
+  80% {
+    rotate: -1.5deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}
+
+/* darkness + light */
+.darkness {
+  position: absolute;
+  inset: 0;
+  background: oklch(0.04 0.01 60);
+  pointer-events: none;
+  z-index: 8;
+  transition: opacity 90ms linear;
+}
+
+.lightcone {
+  position: absolute;
+  top: 0;
+  left: 78%;
+  translate: -50% 0;
+  width: 130vmax;
+  height: 130vmax;
+  background: radial-gradient(
+    circle at 50% 8%,
+    oklch(0.9 0.13 88 / 0.42),
+    oklch(0.8 0.12 80 / 0.14) 26%,
+    transparent 55%
+  );
+  pointer-events: none;
+  z-index: 7;
+  transition: opacity 90ms linear;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9;
+  background: radial-gradient(ellipse at 50% 45%, transparent 40%, oklch(0 0 0 / 0.85) 100%);
+}
+
+/* ---------------- Bear ---------------- */
+
+.bear {
+  position: absolute;
+  bottom: 20%;
+  width: clamp(96px, 13vw, 190px);
+  height: clamp(120px, 17vw, 240px);
+  z-index: 5;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 10px 12px oklch(0 0 0 / 0.55));
+}
+
+.bear--dark svg {
+  filter: brightness(0.18) saturate(0.3);
+}
+
+.bear-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+  will-change: transform;
+}
+
+.bear-shadow {
+  position: absolute;
+  bottom: 19%;
+  width: clamp(80px, 11vw, 160px);
+  height: 16px;
+  border-radius: 50%;
+  background: oklch(0 0 0 / 0.45);
+  filter: blur(6px);
+  z-index: 4;
+}
+
+.bear-leg,
+.bear-arm {
+  transform-origin: 50% 15%;
+}
+
+.bear--walk .bear-leg--front {
+  animation: limb 0.5s ease-in-out infinite;
+}
+.bear--walk .bear-leg--back {
+  animation: limb 0.5s ease-in-out infinite reverse;
+}
+.bear--walk .bear-arm--front {
+  animation: limb 0.5s ease-in-out infinite reverse;
+}
+.bear--walk {
+  animation: bob 0.5s ease-in-out infinite;
+}
+
+.bear--run .bear-leg--front {
+  animation: limb-big 0.24s linear infinite;
+}
+.bear--run .bear-leg--back {
+  animation: limb-big 0.24s linear infinite reverse;
+}
+.bear--run .bear-arm--front {
+  animation: limb-big 0.24s linear infinite reverse;
+}
+.bear--run {
+  animation: bob 0.24s ease-in-out infinite;
+}
+
+.bear--stomp .bear-leg--front {
+  animation: limb-big 0.42s steps(2, end) infinite;
+}
+.bear--stomp .bear-leg--back {
+  animation: limb-big 0.42s steps(2, end) infinite reverse;
+}
+.bear--stomp {
+  animation: stomp 0.42s ease-in-out infinite;
+}
+
+.bear--sneak .bear-leg--front {
+  animation: limb 1.1s ease-in-out infinite;
+}
+.bear--sneak .bear-leg--back {
+  animation: limb 1.1s ease-in-out infinite reverse;
+}
+.bear--sneak {
+  transform-origin: bottom center;
+  animation: crouch 1.1s ease-in-out infinite;
+}
+
+.bear--dance {
+  animation: dance 0.5s ease-in-out infinite;
+}
+.bear--dance .bear-arm--front {
+  animation: limb-big 0.25s ease-in-out infinite;
+}
+.bear--dance .bear-arm--back {
+  animation: limb-big 0.25s ease-in-out infinite reverse;
+}
+
+.bear--idle {
+  animation: breathe 2.6s ease-in-out infinite;
+}
+
+.bear-arm--front {
+  transition: transform 0.35s ease-out;
+  transform-origin: 55% 22%;
+}
+
+@keyframes limb {
+  0%,
+  100% {
+    transform: rotate(16deg);
+  }
+  50% {
+    transform: rotate(-16deg);
+  }
+}
+
+@keyframes limb-big {
+  0%,
+  100% {
+    transform: rotate(34deg);
+  }
+  50% {
+    transform: rotate(-34deg);
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -4px;
+  }
+}
+
+@keyframes stomp {
+  0%,
+  100% {
+    translate: 0 0;
+    scale: 1 1;
+  }
+  50% {
+    translate: 0 -9px;
+    scale: 1.04 0.96;
+  }
+}
+
+@keyframes crouch {
+  0%,
+  100% {
+    scale: 1 0.92;
+  }
+  50% {
+    scale: 1.02 0.89;
+  }
+}
+
+@keyframes dance {
+  0%,
+  100% {
+    rotate: -8deg;
+    translate: -6px 0;
+  }
+  50% {
+    rotate: 8deg;
+    translate: 6px -6px;
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    scale: 1 1;
+  }
+  50% {
+    scale: 1.02 1.02;
+  }
+}
+
+.bear-steam {
+  animation: steam 0.7s ease-in-out infinite;
+}
+
+@keyframes steam {
+  0%,
+  100% {
+    opacity: 0.15;
+    translate: 0 0;
+  }
+  50% {
+    opacity: 0.6;
+    translate: 0 -6px;
+  }
+}
+
+/* lazy-bear magic beam */
+.beam {
+  position: absolute;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--glow), transparent);
+  z-index: 6;
+  animation: beam-pulse 0.4s ease-in-out infinite;
+  border-radius: 2px;
+}
+
+@keyframes beam-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    filter: blur(1px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(2px);
+  }
+}
+
+/* ---------------- UI ---------------- */
+
+.hud {
+  position: absolute;
+  z-index: 12;
+  font-family: var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+  text-shadow: 0 2px 8px oklch(0 0 0 / 0.9);
+  font-size: clamp(0.55rem, 1.2vw, 0.72rem);
+  line-height: 1.7;
+}
+
+.hud--title {
+  top: 1.2rem;
+  left: 1.2rem;
+  color: var(--foreground);
+}
+
+.hud--stats {
+  bottom: 1.1rem;
+  left: 1.2rem;
+  opacity: 0.75;
+}
+
+.hud--taunt {
+  bottom: 1.4rem;
+  left: 50%;
+  translate: -50% 0;
+  color: var(--primary);
+  font-size: clamp(0.65rem, 1.5vw, 0.9rem);
+  text-align: center;
+  max-width: 80vw;
+}
+
+.hint {
+  position: absolute;
+  z-index: 12;
+  top: 46%;
+  left: 78%;
+  translate: -50% 0;
+  font-family: var(--font-display);
+  font-size: clamp(0.6rem, 1.4vw, 0.85rem);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--foreground);
+  opacity: 0.55;
+  animation: hint-pulse 2s ease-in-out infinite;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+@keyframes hint-pulse {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.mute-btn {
+  position: absolute;
+  z-index: 13;
+  top: 1.1rem;
+  right: 1.1rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: oklch(0.18 0.02 60 / 0.6);
+  color: var(--muted-foreground);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.mute-btn:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+@media (max-width: 640px) {
+  .lamp,
+  .rope,
+  .lightcone,
+  .hint {
+    left: 80%;
+  }
+}
+
+/* ---------------- bear head actions ---------------- */
+.bear-head {
+  transform-origin: 60% 80%;
+}
+
+.bear-act--look .bear-head {
+  animation: head-look 2.4s ease-in-out infinite;
+}
+.bear-act--shake .bear-head {
+  animation: head-shake 0.7s ease-in-out infinite;
+}
+.bear-act--sniff .bear-head {
+  animation: head-sniff 0.6s ease-in-out infinite;
+}
+.bear-act--roar .bear-head {
+  animation: head-roar 0.5s ease-in-out infinite;
+}
+.bear-act--shiver {
+  animation: shiver 0.12s linear infinite;
+}
+.bear--glow .bear-eye {
+  filter: drop-shadow(0 0 6px var(--glow));
+}
+.bear--dark.bear--glow .bear-eye {
+  filter: brightness(7) saturate(2.5) drop-shadow(0 0 3px var(--glow));
+}
+.bear-roar-mouth {
+  animation: roar-mouth 0.5s ease-in-out infinite;
+  transform-origin: 66px 70px;
+}
+
+@keyframes head-look {
+  0%,
+  100% {
+    rotate: -9deg;
+  }
+  50% {
+    rotate: 9deg;
+  }
+}
+
+@keyframes head-shake {
+  0%,
+  100% {
+    rotate: -5deg;
+  }
+  50% {
+    rotate: 5deg;
+  }
+}
+
+@keyframes head-sniff {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0 -3px;
+    rotate: 3deg;
+  }
+}
+
+@keyframes head-roar {
+  0%,
+  100% {
+    scale: 1 1;
+    rotate: -3deg;
+  }
+  50% {
+    scale: 1.08 1.08;
+    rotate: 3deg;
+  }
+}
+
+@keyframes roar-mouth {
+  0%,
+  100% {
+    scale: 1 0.8;
+  }
+  50% {
+    scale: 1.05 1.25;
+  }
+}
+
+@keyframes shiver {
+  0%,
+  100% {
+    translate: -1px 0;
+  }
+  50% {
+    translate: 1px 0;
+  }
+}
+
+/* peeking bear reads slightly brighter than a pure silhouette */
+.peek .bear--dark {
+  filter: brightness(0.34) saturate(0.5);
+}
+.peek .bear--dark .bear-eye,
+.bear--dark.bear--glow .bear-eye {
+  filter: brightness(9) saturate(3) drop-shadow(0 0 4px var(--glow));
+}
+.doorway-eyes span {
+  box-shadow: 0 0 12px 4px var(--glow), 0 0 26px 10px rgba(255, 220, 120, 0.35);
+}
+
+/* ---------------- extra gaits ---------------- */
+.bear--hop .bear-leg--front,
+.bear--hop .bear-leg--back {
+  animation: limb 0.46s ease-in-out infinite;
+}
+.bear--hop {
+  animation: hop 0.46s cubic-bezier(0.3, 0.9, 0.4, 1) infinite;
+}
+
+.bear--tiptoe .bear-leg--front {
+  animation: limb 0.34s ease-in-out infinite;
+}
+.bear--tiptoe .bear-leg--back {
+  animation: limb 0.34s ease-in-out infinite reverse;
+}
+.bear--tiptoe {
+  animation: tiptoe 0.34s ease-in-out infinite;
+}
+
+.bear--roll {
+  animation: roll 0.7s linear infinite;
+  transform-origin: 50% 70%;
+}
+
+@keyframes hop {
+  0%,
+  100% {
+    translate: 0 0;
+    scale: 1.04 0.94;
+  }
+  35% {
+    translate: 0 -26px;
+    scale: 0.94 1.08;
+  }
+  70% {
+    translate: 0 -4px;
+    scale: 1 1;
+  }
+}
+
+@keyframes tiptoe {
+  0%,
+  100% {
+    translate: 0 -6px;
+    rotate: -2deg;
+  }
+  50% {
+    translate: 0 -10px;
+    rotate: 2deg;
+  }
+}
+
+@keyframes roll {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+/* ---------------- extra actions ---------------- */
+.bear-act--jump {
+  animation: act-jump 0.75s cubic-bezier(0.25, 0.9, 0.35, 1) both;
+}
+.bear-act--jump .bear-arm--front,
+.bear-act--jump .bear-arm--back {
+  animation: arms-up 0.75s ease-out both;
+}
+
+.bear-act--throw .bear-arm--front {
+  animation: arm-throw 0.6s ease-in both;
+}
+.bear-act--throw {
+  animation: lean 0.6s ease-in-out both;
+}
+
+.bear-act--blow .bear-head {
+  animation: head-blow 1s ease-in-out both;
+}
+.bear-act--blow {
+  animation: blow-body 1s ease-in-out both;
+}
+
+.bear-act--tug .bear-arm--front {
+  animation: arm-tug 0.4s ease-in-out 3;
+}
+.bear-act--tug {
+  animation: tug-body 0.4s ease-in-out 3;
+}
+
+.bear-act--swipe .bear-arm--front {
+  animation: arm-swipe 0.35s ease-in 2;
+}
+.bear-act--swipe {
+  animation: swipe-body 0.35s ease-in-out 2;
+}
+
+.bear-act--wave .bear-arm--front {
+  animation: arm-wave 0.5s ease-in-out infinite;
+}
+
+.bear-act--squash {
+  animation: squash 0.5s ease-in-out both;
+}
+
+@keyframes act-jump {
+  0% {
+    translate: 0 0;
+    scale: 1.06 0.9;
+  }
+  40% {
+    translate: 0 -90px;
+    scale: 0.92 1.12;
+  }
+  70% {
+    translate: 0 -70px;
+  }
+  100% {
+    translate: 0 0;
+    scale: 1.08 0.9;
+  }
+}
+
+@keyframes arms-up {
+  0% {
+    transform: rotate(0deg);
+  }
+  40%,
+  70% {
+    transform: rotate(-150deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
+@keyframes arm-throw {
+  0% {
+    transform: rotate(30deg);
+  }
+  55% {
+    transform: rotate(-120deg);
+  }
+  100% {
+    transform: rotate(-70deg);
+  }
+}
+
+@keyframes lean {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+  55% {
+    rotate: -10deg;
+  }
+}
+
+@keyframes head-blow {
+  0%,
+  100% {
+    scale: 1 1;
+    rotate: 0deg;
+  }
+  25% {
+    scale: 1.12 1.12;
+    rotate: -6deg;
+  }
+  60% {
+    scale: 0.95 0.95;
+    rotate: 5deg;
+  }
+}
+
+@keyframes blow-body {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  30% {
+    translate: -6px 0;
+  }
+  65% {
+    translate: 8px 0;
+  }
+}
+
+@keyframes arm-tug {
+  0%,
+  100% {
+    transform: rotate(-80deg);
+  }
+  50% {
+    transform: rotate(-30deg);
+  }
+}
+
+@keyframes tug-body {
+  0%,
+  100% {
+    translate: 0 0;
+    scale: 1 1;
+  }
+  50% {
+    translate: 0 6px;
+    scale: 1.03 0.95;
+  }
+}
+
+@keyframes arm-swipe {
+  0% {
+    transform: rotate(-110deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
+@keyframes swipe-body {
+  0%,
+  100% {
+    rotate: 0deg;
+  }
+  50% {
+    rotate: 6deg;
+  }
+}
+
+@keyframes arm-wave {
+  0%,
+  100% {
+    transform: rotate(-140deg);
+  }
+  50% {
+    transform: rotate(-100deg);
+  }
+}
+
+@keyframes squash {
+  0%,
+  100% {
+    scale: 1 1;
+    translate: 0 0;
+  }
+  45% {
+    scale: 1.16 0.8;
+    translate: 0 6px;
+  }
+}
+
+/* thrown object + puff of breath */
+.projectile {
+  position: absolute;
+  width: clamp(14px, 1.6vw, 22px);
+  height: clamp(14px, 1.6vw, 22px);
+  border-radius: 40% 60% 55% 45%;
+  background: var(--bear-dark, #4b3524);
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.4);
+  z-index: 7;
+  animation: spin 0.45s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
+}
+
+.puff {
+  position: absolute;
+  height: clamp(10px, 1.2vw, 18px);
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0));
+  filter: blur(3px);
+  z-index: 6;
+  animation: puff 1s ease-out forwards;
+}
+
+@keyframes puff {
+  0% {
+    opacity: 0;
+    scale: 0.2 0.6;
+  }
+  35% {
+    opacity: 0.85;
+    scale: 1 1.2;
+  }
+  100% {
+    opacity: 0;
+    scale: 1.15 0.5;
+  }
+}
