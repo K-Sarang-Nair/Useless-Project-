@@ -55,38 +55,12 @@ For Software:
 
 # Screenshots
 
-![Screenshot](assets/Screenshot 2026-09-12 035721.png)
-
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Workflow: Pull rope → light turns on → door opens → bear appears → bear turns light off → door slams → room resets.*
-
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Not applicable - software-only project)
-*No physical circuit is required for this project.*
-
-![Schematic](Not applicable - software-only project)
-*The project is implemented entirely as a web application.*
-
-# Build Photos
-![Components](Not applicable - software-only project)
-*No physical components are used.*
-
-![Build](Not applicable - software-only project)
-*Development was done using React, TypeScript, Vite, and VS Code.*
-
-![Final](Not applicable - software-only project)
-*Final product is the deployed interactive web experience.*
+![Screenshot](assets/Screenshot.png)
 
 ### Project Demo
 # Video
 [Add your demo video link here]
 *The demo shows the complete interaction from pulling the rope to the bear turning the light off and the room resetting.*
-
-# Additional Demos
-[Add any extra demo materials/links]
 
 ## Team Contributions
 - Sarang K: Project development, core interaction logic, bear behavior/animation implementation, and project integration.
