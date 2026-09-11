@@ -57,12 +57,6 @@ For Software:
 
 ![Screenshot](assets/Screenshot.png)
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Workflow: Pull rope → light turns on → door opens → bear appears → bear turns light off → door slams → room resets.*
-
-For Hardware:
-
 ### Project Demo
 # Video
 [Add your demo video link here]
