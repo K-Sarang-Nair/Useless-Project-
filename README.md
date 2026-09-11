@@ -59,11 +59,7 @@ For Software:
 
 ### Project Demo
 [Video](https://drive.google.com/file/d/1FMRhucYj8mluCyLiHAk_xMYrvzXb28at/view?usp=sharing)
-## Team Contributions
-- Sarang K: Project development, core interaction logic, bear behavior/animation implementation, and project integration.
-- Rishith Chandran: Frontend development, interaction design, testing, deployment, and project documentation.
 
----
 Made with ❤️ at TinkerHub Useless Projects 
 
 ![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
