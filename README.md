@@ -63,30 +63,10 @@ For Software:
 
 For Hardware:
 
-# Schematic & Circuit
-![Circuit](Not applicable - software-only project)
-*No physical circuit is required for this project.*
-
-![Schematic](Not applicable - software-only project)
-*The project is implemented entirely as a web application.*
-
-# Build Photos
-![Components](Not applicable - software-only project)
-*No physical components are used.*
-
-![Build](Not applicable - software-only project)
-*Development was done using React, TypeScript, Vite, and VS Code.*
-
-![Final](Not applicable - software-only project)
-*Final product is the deployed interactive web experience.*
-
 ### Project Demo
 # Video
 [Add your demo video link here]
 *The demo shows the complete interaction from pulling the rope to the bear turning the light off and the room resetting.*
-
-# Additional Demos
-[Add any extra demo materials/links]
 
 ## Team Contributions
 - Sarang K: Project development, core interaction logic, bear behavior/animation implementation, and project integration.
