@@ -55,7 +55,7 @@ For Software:
 
 # Screenshots
 
-![Screenshot1](https://github.com/user-attachments/assets/8920b256-2ba8-4988-b824-5351134eb4bd)
+![Screenshot1](assets/Screenshot 2026-09-12 035721.png)
 *Main visual concept of the interactive room and its atmosphere.*
 
 ![Screenshot2](Add screenshot 2 here with proper name)
