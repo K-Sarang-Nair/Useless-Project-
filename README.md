@@ -1,227 +1,106 @@
+<img width="1280" height="640" alt="git (1)" src="https://github.com/user-attachments/assets/8920b256-2ba8-4988-b824-5351134eb4bd" />
+
 # Useless Project 3.0 🐻💡
 
-> **You turn it on. He turns it off.**
 
-**Useless Project 3.0** is a fun, deliberately pointless interactive web experience created as a **hackathon project** by **Sarang K** and **Rishith Chandran**.
+## Basic Details
+### Team Name: Useless Project 3.0
 
-The concept is simple: a dark room contains a light controlled by a hanging rope. Pull the rope, the light turns on, and then a very annoyed bear appears and turns it back off. Every encounter can play out with different bear behaviors.
 
-Because sometimes the best hackathon project is one that exists for absolutely no practical reason. 😭
+### Team Members
+- Team Lead: Sarang K - ICCS College of Engineering and Management
+- Member 2: Rishith Chandran - ICCS College of Engineering and Management
 
----
+### Project Description
+**Useless Project 3.0** is a deliberately pointless interactive web experience created for a hackathon.
+The user enters a dark room, pulls a hanging rope to turn on the light, and then an annoyed bear appears and turns the light back off.
 
-## 🎯 Project Idea
+### The Problem (that doesn't exist)
+The world has a serious problem: sometimes people turn on lights without considering that a bear might strongly disagree with their decision.
 
-The project turns a simple light-switch interaction into a small interactive story.
+### The Solution (that nobody asked for)
+We built an interactive room where turning on a light summons a bear whose only mission is to turn it back off.
+The bear enters through an animated door, reacts in different ways, switches the light off, slams the door, and leaves the room ready for the user to repeat the entire pointless process.
 
-### The experience
+## Technical Details
+### Technologies/Components Used
+For Software:
+- TypeScript
+- React
+- Vite
+- CSS
+- Browser/Web Audio APIs
+- VS Code
+- Git & GitHub
+- Vercel
 
-1. You enter a dark room.
-2. A hanging rope is visible beside the light.
-3. Pull or click the rope.
-4. The light flickers and turns on.
-5. The door opens dramatically.
-6. A bear enters the room.
-7. The bear reacts with different behaviors and animations.
-8. The bear turns the light off.
-9. The door slams shut.
-10. The room resets, ready for you to do the exact same useless thing again.
+For Hardware:
+- No hardware required
+- Runs completely in a web browser
 
----
-
-## ✨ Features
-
-- 🪢 **Interactive light rope** — pull or click the rope to activate the light.
-- 💡 **Dynamic lighting** — the room changes between dark and illuminated states.
-- 🚪 **Animated door sequence** — includes opening, darkness, glowing eyes, and dramatic door slams.
-- 🐻 **Multiple bear behaviors** — including angry, sleepy, sneaky, suspicious, silly, and other reactions.
-- 🎭 **Bear animations and actions** — walking, running, sneaking, dancing, jumping, throwing, blowing, tugging, swiping, and more.
-- 🔊 **Sound effects** — rope pulls, switches, footsteps, growls, roars, creaks, impacts, and other effects.
-- 🔇 **Sound toggle** — sound can be enabled or disabled.
-- 🔁 **Endless loop** — the room resets after each encounter.
-- 🌐 **Frontend-only** — runs entirely in the browser without a custom backend server.
-
----
-
-## 🛠️ Tech Stack
-
-- **React**
-- **TypeScript**
-- **Vite**
-- **CSS**
-- **Web Audio / browser audio APIs**
-- **Git & GitHub**
-- **Vercel** for deployment
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-Make sure you have **Node.js** and **npm** installed.
-
-### Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/K-Sarang-Nair/Useless-Project-.git
-```
-
-Enter the project folder:
-
-```bash
-cd Useless-Project-
-```
-
-Install dependencies:
-
+### Implementation
+For Software:
+# Installation
 ```bash
 npm install
 ```
 
-Start the development server:
-
+# Run
 ```bash
 npm run dev
 ```
 
-Open the local URL shown by Vite, usually:
+### Project Documentation
+For Software:
 
-```text
-http://localhost:5173
-```
+# Screenshots
 
----
+![Screenshot1](https://github.com/user-attachments/assets/8920b256-2ba8-4988-b824-5351134eb4bd)
+*Main visual concept of the interactive room and its atmosphere.*
 
-## 📦 Production Build
+![Screenshot2](Add screenshot 2 here with proper name)
+*Add a screenshot showing the rope and light interaction.*
 
-Build the application:
+![Screenshot3](Add screenshot 3 here with proper name)
+*Add a screenshot showing the bear entering the room.*
 
-```bash
-npm run build
-```
+# Diagrams
+![Workflow](Add your workflow/architecture diagram here)
+*Workflow: Pull rope → light turns on → door opens → bear appears → bear turns light off → door slams → room resets.*
 
-Preview the production build:
+For Hardware:
 
-```bash
-npm run preview
-```
+# Schematic & Circuit
+![Circuit](Not applicable - software-only project)
+*No physical circuit is required for this project.*
 
----
+![Schematic](Not applicable - software-only project)
+*The project is implemented entirely as a web application.*
 
-## 🎮 Interaction
+# Build Photos
+![Components](Not applicable - software-only project)
+*No physical components are used.*
 
-The basic loop is:
+![Build](Not applicable - software-only project)
+*Development was done using React, TypeScript, Vite, and VS Code.*
 
-```text
-Pull Rope
-    ↓
-Light Turns On
-    ↓
-Door Opens
-    ↓
-Bear Appears
-    ↓
-Bear Turns Light Off
-    ↓
-Door Slams
-    ↓
-Room Resets
-    ↓
-Repeat
-```
+![Final](Not applicable - software-only project)
+*Final product is the deployed interactive web experience.*
 
-### Controls
+### Project Demo
+# Video
+[Add your demo video link here]
+*The demo shows the complete interaction from pulling the rope to the bear turning the light off and the room resetting.*
 
-- **Mouse / Pointer:** click or pull the rope
-- **Keyboard:** activate the rope with **Enter** or **Space**
-- **Sound:** use the sound toggle button to mute/unmute audio
+# Additional Demos
+[Add any extra demo materials/links]
+
+## Team Contributions
+- Sarang K: Project development, core interaction logic, bear behavior/animation implementation, and project integration.
+- Rishith Chandran: Frontend development, interaction design, testing, deployment, and project documentation.
 
 ---
+Made with ❤️ at TinkerHub Useless Projects 
 
-## 🐻 Bear Behaviors
-
-The bear does not always behave the same way.
-
-Depending on the encounter, it may:
-
-- Walk in normally
-- Charge angrily
-- Move slowly while sleepy
-- Sneak through the room
-- Act suspiciously
-- Dance before turning the light off
-- Roll in lazily
-- Become extremely angry
-
-The goal is not to create a useful application.
-
-The goal is to make the user think:
-
-> **"Why did I click that again?"**
-
----
-
-## 💡 Why "Useless Project"?
-
-The project is intentionally designed around a completely unnecessary interaction.
-
-There is no useful information to provide, no productivity goal, and no serious problem to solve.
-
-You turn on the light.
-
-The bear turns it off.
-
-You do it again.
-
-That's the project.
-
-And somehow, you'll probably do it a lot more than once.
-
----
-
-## 🏆 Hackathon
-
-**Project:** Useless Project 3.0  
-**Type:** Hackathon Project  
-**Category:** Interactive Web Experience
-
-### Developers
-
-**Sarang K**  
-**Rishith Chandran**
-
----
-
-## ☁️ Deployment
-
-The project is designed as a Vite frontend and can be deployed on **Vercel**.
-
-Typical settings:
-
-```text
-Framework Preset: Vite
-Build Command: npm run build
-Output Directory: dist
-Install Command: npm install
-```
-
----
-
-## 📄 License
-
-This project was created as a hackathon and experimental project.
-
-Feel free to explore, modify, and build upon it for learning and experimentation.
-
----
-
-## ❤️ Final Note
-
-This project proves an important technological achievement:
-
-### We solved absolutely nothing.
-
-And we made it interactive. 🐻💡
+![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
+![Static Badge](https://img.shields.io/badge/UselessProjects--26-26?link=https%3A%2F%2Ftinkerhub.org%2Fevents%2F1M8ORET9A1%2Fuseless-projects-3.0)
