@@ -58,8 +58,7 @@ For Software:
 ![Screenshot](assets/Screenshot.png)
 
 ### Project Demo
-[Video](assets/video.mp4)
-*The demo shows the complete interaction from pulling the rope to the bear turning the light off and the room resetting.*
+[Video](https://github.com/K-Sarang-Nair/Useless-Project-/blob/main/assets/video.mp4)
 
 ## Team Contributions
 - Sarang K: Project development, core interaction logic, bear behavior/animation implementation, and project integration.
