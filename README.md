@@ -55,7 +55,7 @@ For Software:
 
 # Screenshots
 
-![Screenshot](assets/Screenshot 2026-09-12 035721.png)
+(assets/Screenshot 2026-09-12 035721.png)
 
 # Diagrams
 ![Workflow](Add your workflow/architecture diagram here)
