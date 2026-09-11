@@ -59,7 +59,7 @@ For Software:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
+[](assets/video.mp4)
 *The demo shows the complete interaction from pulling the rope to the bear turning the light off and the room resetting.*
 
 ## Team Contributions
