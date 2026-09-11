@@ -58,7 +58,7 @@ For Software:
 ![Screenshot](assets/Screenshot.png)
 
 ### Project Demo
-[Video](assets/video.mp4)
+[](https://github.com/K-Sarang-Nair/Useless-Project-/blob/main/assets/video.mp4))
 *The demo shows the complete interaction from pulling the rope to the bear turning the light off and the room resetting.*
 
 ## Team Contributions
