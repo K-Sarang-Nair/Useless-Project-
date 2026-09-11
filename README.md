@@ -4,11 +4,11 @@
 
 
 ## Basic Details
-### Team Name: Useless Project 3.0
+### Team Name: TECHNO
 
 
 ### Team Members
-- Team Lead: Sarang K - ICCS College of Engineering and Management
+- Member 1: Sarang K - ICCS College of Engineering and Management
 - Member 2: Rishith Chandran - ICCS College of Engineering and Management
 
 ### Project Description
