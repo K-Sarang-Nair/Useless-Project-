@@ -58,8 +58,7 @@ For Software:
 ![Screenshot](assets/Screenshot.png)
 
 ### Project Demo
-[Video](https://github.com/K-Sarang-Nair/Useless-Project-/blob/main/assets/video.mp4)
-
+[Video](https://drive.google.com/file/d/1FMRhucYj8mluCyLiHAk_xMYrvzXb28at/view?usp=sharing)
 ## Team Contributions
 - Sarang K: Project development, core interaction logic, bear behavior/animation implementation, and project integration.
 - Rishith Chandran: Frontend development, interaction design, testing, deployment, and project documentation.
