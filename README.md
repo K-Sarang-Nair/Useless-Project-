@@ -55,14 +55,7 @@ For Software:
 
 # Screenshots
 
-![Screenshot1](https://github.com/user-attachments/assets/8920b256-2ba8-4988-b824-5351134eb4bd)
-*Main visual concept of the interactive room and its atmosphere.*
-
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add a screenshot showing the rope and light interaction.*
-
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add a screenshot showing the bear entering the room.*
+![Screenshot](assets/Screenshot 2026-09-12 035721.png)
 
 # Diagrams
 ![Workflow](Add your workflow/architecture diagram here)
