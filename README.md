@@ -12,8 +12,7 @@
 - Member 2: Rishith Chandran - ICCS College of Engineering and Management
 
 ### Project Description
-**Useless Project 3.0** is a deliberately pointless interactive web experience created for a hackathon.
-The user enters a dark room, pulls a hanging rope to turn on the light, and then an annoyed bear appears and turns the light back off.
+This is a fun, interactive web experience where you pull a rope to turn on a light—only for an unpredictable bear to appear and turn it back off. With animations, sound effects, and different bear behaviors, the project turns a completely useless action into an entertaining experience. 🐻💡
 
 ### The Problem (that doesn't exist)
 The world has a serious problem: sometimes people turn on lights without considering that a bear might strongly disagree with their decision.
